@@ -283,7 +283,6 @@ public class SpielDaten implements Serializable {
 						}
 					}
 				}
-
 			}
 		}
 	}

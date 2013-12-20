@@ -39,9 +39,9 @@ public class Overlay extends SuperGUI implements ActionListener{
 	private JButton bSpielzugEnde;	//Auf Button Panel im Süden
 	private JButton bHandel;		//Auf Button Panel im Süden
 	private JPanel p1;				//Panel EastPanel
-	private JPanel p2;				//Panel SouthPanel
+	public JPanel p2;				//Panel SouthPanel
 	private JPanel p3;				//Panel WestPanel
-	protected Baumenu baumenu;
+	public Baumenu baumenu;
 	private JLabel leer;			//Platzhalter im Button Panel
 	private JLabel leer1;			//Platzhalter im Button Panel
 	private Spielfeld spielfeld;

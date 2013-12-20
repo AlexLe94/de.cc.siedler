@@ -203,9 +203,10 @@ public class Spielsteuerung {
 	}
 	public void spielZug()
 	{
+		wuerfeln();
 		System.out.println("SpielZug Aufgerufen!");
 		ov.getbSpielzugEnde().setEnabled(true);
-		ov.getBaumenu().getbStrasseBauen().setEnabled(true);
+		ov.baumenu.bSiedlungBauen.setEnabled(true);
 		ov.getBaumenu().getbStadtBauen().setEnabled(true);
 		ov.getBaumenu().getbSiedlungBauen().setEnabled(true);
 		ov.getBaumenu().getbEntKarteBauen().setEnabled(true);

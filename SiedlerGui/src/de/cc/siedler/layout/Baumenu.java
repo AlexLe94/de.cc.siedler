@@ -32,9 +32,9 @@ public class Baumenu extends JPanel implements ActionListener {
 	private final static String ICON_HOLZ = new String(
 			"img/baumenu/holzIcon.png");
 
-	private JButton bSiedlungBauen;
-	private JButton bStadtBauen;
-	private JButton bStrasseBauen;
+	public JButton bSiedlungBauen;
+	public JButton bStadtBauen;
+	public JButton bStrasseBauen;
 	private JButton bEntKarteBauen;
 	private Spielsteuerung steuerung;
 	private Spieler spieler;

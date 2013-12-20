@@ -542,22 +542,22 @@ public class Spielfeld extends JPanel implements MouseListener{
 			
 			switch (steuerung.getWuerfelZwei()){
 			case 1:
-				g.drawImage(IMG_WUERFELEINS, 20, 530, this);
+				g.drawImage(IMG_WUERFELEINS, 70, 530, this);
 				break;
 			case 2:
-				g.drawImage(IMG_WUERFELZWEI, 20, 530, this);
+				g.drawImage(IMG_WUERFELZWEI, 70, 530, this);
 				break;
 			case 3:
-				g.drawImage(IMG_WUERFELDREI, 20, 530, this);
+				g.drawImage(IMG_WUERFELDREI, 70, 530, this);
 				break;
 			case 4:
-				g.drawImage(IMG_WUERFELVIER, 20, 530, this);
+				g.drawImage(IMG_WUERFELVIER, 70, 530, this);
 				break;
 			case 5:
-				g.drawImage(IMG_WUERFELFUENF, 20, 530, this);
+				g.drawImage(IMG_WUERFELFUENF, 70, 530, this);
 				break;
 			case 6:
-				g.drawImage(IMG_WUERFELSECHS, 20, 530, this);
+				g.drawImage(IMG_WUERFELSECHS, 70, 530, this);
 				break;
 			default:
 				Logger.info("Es wurde noch nicht gewürfelt!");

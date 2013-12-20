@@ -52,6 +52,7 @@ public class Spielsteuerung {
 		 spieldaten.setWuerfelZwei((int) ((Math.random()*100)%6)+1);
 		 spieldaten.rohstoffeVerteilen();
 		 System.out.println(spieldaten.getWuerfelEins() + " - " + spieldaten.getWuerfelZwei());
+		 client.sendeSpielDaten(spieldaten);
 	}
 
 	// Erstellt eine Spielsteuerung mit dem Username, 

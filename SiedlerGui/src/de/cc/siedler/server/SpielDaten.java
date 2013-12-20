@@ -62,6 +62,7 @@ public class SpielDaten implements Serializable {
 							default:
 								Logger.info("Fehler bei Rohstoff oder Wüste");
 							}
+							break;
 						}
 						case "Siedlung - gruen": {
 							switch (felder.get(i).getRohstoff()) {
@@ -93,6 +94,7 @@ public class SpielDaten implements Serializable {
 							default:
 								Logger.info("Fehler bei Rohstoff oder Wüste");
 							}
+							break;
 						}
 						case "Siedlung - blau": {
 							switch (felder.get(i).getRohstoff()) {
@@ -124,6 +126,7 @@ public class SpielDaten implements Serializable {
 							default:
 								Logger.info("Fehler bei Rohstoff oder Wüste");
 							}
+							break;
 						}
 						case "Siedlung - orange": {
 							switch (felder.get(i).getRohstoff()) {
@@ -155,6 +158,7 @@ public class SpielDaten implements Serializable {
 							default:
 								Logger.info("Fehler bei Rohstoff oder Wüste");
 							}
+							break;
 						}
 						case "Stadt - rot": {
 							switch (felder.get(i).getRohstoff()) {
@@ -186,6 +190,7 @@ public class SpielDaten implements Serializable {
 							default:
 								Logger.info("Fehler bei Rohstoff oder Wüste");
 							}
+							break;
 						}
 						case "Stadt - gruen": {
 							switch (felder.get(i).getRohstoff()) {
@@ -217,6 +222,7 @@ public class SpielDaten implements Serializable {
 							default:
 								Logger.info("Fehler bei Rohstoff oder Wüste");
 							}
+							break;
 						}
 						case "Stadt - blau": {
 							switch (felder.get(i).getRohstoff()) {
@@ -248,6 +254,7 @@ public class SpielDaten implements Serializable {
 							default:
 								Logger.info("Fehler bei Rohstoff oder Wüste");
 							}
+							break;
 						}
 						case "Stadt - orange": {
 							switch (felder.get(i).getRohstoff()) {
@@ -279,6 +286,7 @@ public class SpielDaten implements Serializable {
 							default:
 								Logger.info("Fehler bei Rohstoff oder Wüste");
 							}
+							break;
 						}
 						}
 					}

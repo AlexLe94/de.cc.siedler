@@ -232,9 +232,10 @@ public class Spielsteuerung {
 			}
 		}
 		spielZug();
+	}
+	public void neuesSpielServer(){
 		client.neuesSpiel();
 	}
-
 	public Overlay getOv() {
 		return ov;
 	}

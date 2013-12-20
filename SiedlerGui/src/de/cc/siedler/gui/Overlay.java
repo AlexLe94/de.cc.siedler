@@ -402,7 +402,7 @@ public class Overlay extends SuperGUI implements ActionListener{
 		if (e.getSource() == bNeu)
 		{
 			System.out.println("bNeu");
-			steuerung.neuesSpiel();
+			steuerung.neuesSpielServer();
 		}
 		if (e.getSource() == bSpielzugEnde)
 		{

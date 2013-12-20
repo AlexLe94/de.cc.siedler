@@ -92,12 +92,14 @@ public class GameClient implements Runnable, Serializable {
 	public void spielzugEnde() {
 		Kommando kdo = new Kommando();
 		kdo.setKommando("spielzugEnde");
+		sende(kdo);
 	}
 
 	// Wenn Spieler 1 das Spiel mit "Neues Spiel" startet
 	public void neuesSpiel() {
 		Kommando kdo = new Kommando();
 		kdo.setKommando("neuesSpiel");
+		sende(kdo);
 	}
 	
 	// Wird benutzt um die aktuellen Daten zum Server zu schicken

@@ -108,6 +108,9 @@ public class GameServer implements Runnable, Serializable {
 		for (int i = 0; i < spielDaten.getFelder().size(); i++) {
 			newDaten.getFelder().add(spielDaten.getFelder().get(i));
 		}
+		newDaten.setWuerfelEins(spielDaten.getWuerfelEins());
+		newDaten.setWuerfelZwei(spielDaten.getWuerfelZwei());
+		
 		return newDaten;
 	}
 

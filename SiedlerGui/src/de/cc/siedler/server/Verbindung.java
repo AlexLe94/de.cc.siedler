@@ -59,6 +59,7 @@ public class Verbindung implements Runnable {
 		}
 	}
 
+	
 	public void sende(Kommando obj) {
 		try {
 			out.writeObject(obj);

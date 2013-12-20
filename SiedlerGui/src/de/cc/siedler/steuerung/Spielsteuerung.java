@@ -222,16 +222,9 @@ public class Spielsteuerung {
 	}
 
 	public void neuesSpiel() {
-		for (int i = 0; i < getSpielerListe().size(); i++)
-		{
-			if (spieldaten.getSpielerListe().get(i).getsNickname().equals(getName()))
-			{
-				ov.getP2().remove(ov.getBaumenu());
-				ov.getP2().add(new Baumenu(this), getGBCHorizontal(0, 0, 1));
-				System.out.println("Baumenu erstellt!");
-			}
-		}
-		spielZug();
+		ov.getP2().remove(ov.getBaumenu());
+		ov.getP2().add(new Baumenu(this), getGBCHorizontal(0, 0, 1));
+		System.out.println("Baumenu erstellt!");
 	}
 	public void neuesSpielServer(){
 		client.neuesSpiel();

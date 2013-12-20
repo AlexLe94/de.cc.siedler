@@ -180,6 +180,7 @@ public class Spielfeld extends JPanel implements MouseListener{
 				Logger.info("Diese Farbe gehört keinem Spieler!");
 			}
 		}
+		System.out.println(strSiedl);
 		int zaehler = 0;
 		if (strSiedl != null){
 			for (int i = 0; i<steuerung.getEckPunkteListe().size(); i++){

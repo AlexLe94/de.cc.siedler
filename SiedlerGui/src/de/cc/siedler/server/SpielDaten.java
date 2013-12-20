@@ -29,8 +29,8 @@ public class SpielDaten implements Serializable {
 	public void rohstoffeVerteilen() {
 		if (felder != null && spielerListe != null) {
 			for (int i = 0; i < felder.size(); i++) {
-				for (int z = 0; z < felder.get(i).getEcken().size(); z++) {
-					if (felder.get(i).getFeldnr() == (wuerfelEins + wuerfelZwei)) {
+				if (felder.get(i).getFeldnr() == (wuerfelEins + wuerfelZwei)) {
+					for (int z = 0; z < felder.get(i).getEcken().size(); z++) {
 						switch (felder.get(i).getEcken().get(z).getBesetzt()) {
 						case "Siedlung - rot": {
 							switch (felder.get(i).getRohstoff()) {
@@ -286,7 +286,6 @@ public class SpielDaten implements Serializable {
 
 			}
 		}
-
 	}
 
 	// Konstruktor

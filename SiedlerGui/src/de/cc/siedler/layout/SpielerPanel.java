@@ -52,14 +52,14 @@ public class SpielerPanel extends JPanel {
 		lRitter.setForeground(Color.WHITE);
 
 		JLabel lHolz = new JLabel(
-				new ImageIcon("img/Spieler/holzIconSmall.png"));
+				new ImageIcon(JFrame.class.getResource("/spieler/holzIconSmall.png")));
 		JLabel lGetreide = new JLabel(new ImageIcon(
-				"img/Spieler/getreideIconSmall.png"));
+				JFrame.class.getResource("/spieler/getreideIconSmall.png")));
 		JLabel lWolle = new JLabel(new ImageIcon(
-				"img/Spieler/wolleIconSmall.png"));
+				JFrame.class.getResource("/spieler/wolleIconSmall.png")));
 		JLabel lLehm = new JLabel(
-				new ImageIcon("img/Spieler/lehmIconSmall.png"));
-		JLabel lErz = new JLabel(new ImageIcon("img/Spieler/erzIconSmall.png"));
+				new ImageIcon(JFrame.class.getResource("/spieler/lehmIconSmall.png")));
+		JLabel lErz = new JLabel(new ImageIcon(JFrame.class.getResource("/spieler/erzIconSmall.png")));
 
 		tfPunkte = new JTextField("" + spieler.getiSiegPunkte());
 		tfStaedte = new JTextField(spieler.getiStaedte() + " / "

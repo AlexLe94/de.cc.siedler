@@ -23,16 +23,13 @@ import java.awt.Toolkit;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionAdapter;
-import java.awt.geom.AffineTransform;
 import java.awt.geom.Line2D;
-import java.util.ArrayList;
-import java.util.List;
 
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 
-import de.cc.siedler.server.SpielDaten;
 import de.cc.siedler.steuerung.Spielsteuerung;
 import de.cc.siedler.utils.Logger;
 
@@ -40,44 +37,44 @@ import de.cc.siedler.utils.Logger;
 public class Spielfeld extends JPanel implements MouseListener{
 	
 	// Spielfelder
-	private final static ImageIcon ICON_SPIELFELD_1 = new ImageIcon("img/spielfelder/Spielfeld.gif");
+	private final static ImageIcon ICON_SPIELFELD_1 = new ImageIcon(JFrame.class.getResource("/spielfelder/Spielfeld.gif"));
 	
 	// Räuber
-	private final static ImageIcon ICON_RAEUBER = new ImageIcon("img/spielfiguren/raeuber.gif");
+	//private final static ImageIcon ICON_RAEUBER = new ImageIcon(JFrame.class.getResource("/spielfiguren/raeuber.gif"));
 	
 	// Würfel
-	private final static Image IMG_WUERFELEINS = Toolkit.getDefaultToolkit().getImage("img/wuerfel/wuerfelEins.png");
-	private final static Image IMG_WUERFELZWEI = Toolkit.getDefaultToolkit().getImage("img/wuerfel/wuerfelZwei.png");
-	private final static Image IMG_WUERFELDREI = Toolkit.getDefaultToolkit().getImage("img/wuerfel/wuerfelDrei.png");
-	private final static Image IMG_WUERFELVIER = Toolkit.getDefaultToolkit().getImage("img/wuerfel/wuerfelVier.png");
-	private final static Image IMG_WUERFELFUENF = Toolkit.getDefaultToolkit().getImage("img/wuerfel/wuerfelFuenf.png");
-	private final static Image IMG_WUERFELSECHS = Toolkit.getDefaultToolkit().getImage("img/wuerfel/wuerfelSechs.png");
+	private final static Image IMG_WUERFELEINS = Toolkit.getDefaultToolkit().getImage(JFrame.class.getResource("/wuerfel/wuerfelEins.png"));
+	private final static Image IMG_WUERFELZWEI = Toolkit.getDefaultToolkit().getImage(JFrame.class.getResource("/wuerfel/wuerfelZwei.png"));
+	private final static Image IMG_WUERFELDREI = Toolkit.getDefaultToolkit().getImage(JFrame.class.getResource("/wuerfel/wuerfelDrei.png"));
+	private final static Image IMG_WUERFELVIER = Toolkit.getDefaultToolkit().getImage(JFrame.class.getResource("/wuerfel/wuerfelVier.png"));
+	private final static Image IMG_WUERFELFUENF = Toolkit.getDefaultToolkit().getImage(JFrame.class.getResource("/wuerfel/wuerfelFuenf.png"));
+	private final static Image IMG_WUERFELSECHS = Toolkit.getDefaultToolkit().getImage(JFrame.class.getResource("/wuerfel/wuerfelSechs.png"));
 	
 	// Siedlungen in verschiedenen Farben (blau, grün, orange, rot)
-	private final static Image IMG_SIEDLUNGBLAU = Toolkit.getDefaultToolkit().getImage("img/spielfiguren/blau/siedlungBlau.png");
-	private final static Image IMG_SIEDLUNGGRUEN = Toolkit.getDefaultToolkit().getImage("img/spielfiguren/gruen/siedlungGruen.png");
-	private final static Image IMG_SIEDLUNGORANGE = Toolkit.getDefaultToolkit().getImage("img/spielfiguren/orange/siedlungOrange.png");
-	private final static Image IMG_SIEDLUNGROT = Toolkit.getDefaultToolkit().getImage("img/spielfiguren/rot/siedlungRot.png");
+	private final static Image IMG_SIEDLUNGBLAU = Toolkit.getDefaultToolkit().getImage(JFrame.class.getResource("/spielfiguren/blau/siedlungBlau.png"));
+	private final static Image IMG_SIEDLUNGGRUEN = Toolkit.getDefaultToolkit().getImage(JFrame.class.getResource("/spielfiguren/gruen/siedlungGruen.png"));
+	private final static Image IMG_SIEDLUNGORANGE = Toolkit.getDefaultToolkit().getImage(JFrame.class.getResource("/spielfiguren/orange/siedlungOrange.png"));
+	private final static Image IMG_SIEDLUNGROT = Toolkit.getDefaultToolkit().getImage(JFrame.class.getResource("/spielfiguren/rot/siedlungRot.png"));
 	
 	// Städte in verschiedenen Farben (blau, grün, orange, rot)
-	private static final Image IMG_STADTROT = Toolkit.getDefaultToolkit().getImage("img/spielfiguren/rot/stadtRot.png");
-	private static final Image IMG_STADTBLAU = Toolkit.getDefaultToolkit().getImage("img/spielfiguren/blau/stadtBlau.png");
-	private static final Image IMG_STADTGRUEN = Toolkit.getDefaultToolkit().getImage("img/spielfiguren/gruen/stadtGruen.png");
-	private static final Image IMG_STADTORANGE = Toolkit.getDefaultToolkit().getImage("img/spielfiguren/orange/stadtOrange.png");
+	private static final Image IMG_STADTROT = Toolkit.getDefaultToolkit().getImage(JFrame.class.getResource("/spielfiguren/rot/stadtRot.png"));
+	private static final Image IMG_STADTBLAU = Toolkit.getDefaultToolkit().getImage(JFrame.class.getResource("/spielfiguren/blau/stadtBlau.png"));
+	private static final Image IMG_STADTGRUEN = Toolkit.getDefaultToolkit().getImage(JFrame.class.getResource("/spielfiguren/gruen/stadtGruen.png"));
+	private static final Image IMG_STADTORANGE = Toolkit.getDefaultToolkit().getImage(JFrame.class.getResource("/spielfiguren/orange/stadtOrange.png"));
 	
 	// Strassen in verschiedenen Farben (blau, grün, orange, rot)
-	private static final Image IMG_STRASSEROTSENKRECHT = Toolkit.getDefaultToolkit().getImage("img/spielfiguren/rot/strasseRotSenkrecht.png");
-	private static final Image IMG_STRASSEBLAUSENKRECHT = Toolkit.getDefaultToolkit().getImage("img/spielfiguren/blau/strasseBlauSenkrecht.png");
-	private static final Image IMG_STRASSEGRUENSENKRECHT = Toolkit.getDefaultToolkit().getImage("img/spielfiguren/gruen/strasseGruenSenkrecht.png");
-	private static final Image IMG_STRASSEORANGESENKRECHT = Toolkit.getDefaultToolkit().getImage("img/spielfiguren/orange/strasseOrangeSenkrecht.png");
-	private static final Image IMG_STRASSEROTLINKS = Toolkit.getDefaultToolkit().getImage("img/spielfiguren/rot/strasseRotLinks.png");
-	private static final Image IMG_STRASSEBLAULINKS = Toolkit.getDefaultToolkit().getImage("img/spielfiguren/blau/strasseBlauLinks.png");
-	private static final Image IMG_STRASSEGRUENLINKS = Toolkit.getDefaultToolkit().getImage("img/spielfiguren/gruen/strasseGruenLinks.png");
-	private static final Image IMG_STRASSEORANGELINKS = Toolkit.getDefaultToolkit().getImage("img/spielfiguren/orange/strasseOrangeLinks.png");
-	private static final Image IMG_STRASSEROTRECHTS = Toolkit.getDefaultToolkit().getImage("img/spielfiguren/rot/strasseRotRechts.png");
-	private static final Image IMG_STRASSEBLAURECHTS = Toolkit.getDefaultToolkit().getImage("img/spielfiguren/blau/strasseBlauRechts.png");
-	private static final Image IMG_STRASSEGRUENRECHTS = Toolkit.getDefaultToolkit().getImage("img/spielfiguren/gruen/strasseGruenRechts.png");
-	private static final Image IMG_STRASSEORANGERECHTS = Toolkit.getDefaultToolkit().getImage("img/spielfiguren/orange/strasseOrangeRechts.png");
+	private static final Image IMG_STRASSEROTSENKRECHT = Toolkit.getDefaultToolkit().getImage(JFrame.class.getResource("/spielfiguren/rot/strasseRotSenkrecht.png"));
+	private static final Image IMG_STRASSEBLAUSENKRECHT = Toolkit.getDefaultToolkit().getImage(JFrame.class.getResource("/spielfiguren/blau/strasseBlauSenkrecht.png"));
+	private static final Image IMG_STRASSEGRUENSENKRECHT = Toolkit.getDefaultToolkit().getImage(JFrame.class.getResource("/spielfiguren/gruen/strasseGruenSenkrecht.png"));
+	private static final Image IMG_STRASSEORANGESENKRECHT = Toolkit.getDefaultToolkit().getImage(JFrame.class.getResource("/spielfiguren/orange/strasseOrangeSenkrecht.png"));
+	private static final Image IMG_STRASSEROTLINKS = Toolkit.getDefaultToolkit().getImage(JFrame.class.getResource("/spielfiguren/rot/strasseRotLinks.png"));
+	private static final Image IMG_STRASSEBLAULINKS = Toolkit.getDefaultToolkit().getImage(JFrame.class.getResource("/spielfiguren/blau/strasseBlauLinks.png"));
+	private static final Image IMG_STRASSEGRUENLINKS = Toolkit.getDefaultToolkit().getImage(JFrame.class.getResource("/spielfiguren/gruen/strasseGruenLinks.png"));
+	private static final Image IMG_STRASSEORANGELINKS = Toolkit.getDefaultToolkit().getImage(JFrame.class.getResource("/spielfiguren/orange/strasseOrangeLinks.png"));
+	private static final Image IMG_STRASSEROTRECHTS = Toolkit.getDefaultToolkit().getImage(JFrame.class.getResource("/spielfiguren/rot/strasseRotRechts.png"));
+	private static final Image IMG_STRASSEBLAURECHTS = Toolkit.getDefaultToolkit().getImage(JFrame.class.getResource("/spielfiguren/blau/strasseBlauRechts.png"));
+	private static final Image IMG_STRASSEGRUENRECHTS = Toolkit.getDefaultToolkit().getImage(JFrame.class.getResource("/spielfiguren/gruen/strasseGruenRechts.png"));
+	private static final Image IMG_STRASSEORANGERECHTS = Toolkit.getDefaultToolkit().getImage(JFrame.class.getResource("/spielfiguren/orange/strasseOrangeRechts.png"));
 	
 	// Variablen
 	private JLabel lblNewLabel;						// Spielfeldlabel

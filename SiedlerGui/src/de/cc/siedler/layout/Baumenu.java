@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -22,15 +23,15 @@ import de.cc.siedler.steuerung.Spielsteuerung;
 
 public class Baumenu extends JPanel implements ActionListener {
 
-	private final static String ICON_ERZ = new String("img/baumenu/erzIcon.png");
+	private final static String ICON_ERZ = new String("/baumenu/erzIcon.png");
 	private final static String ICON_GETREIDE = new String(
-			"img/baumenu/getreideIcon.png");
+			"/baumenu/getreideIcon.png");
 	private final static String ICON_LEHM = new String(
-			"img/baumenu/lehmIcon.png");
+			"/baumenu/lehmIcon.png");
 	private final static String ICON_WOLLE = new String(
-			"img/baumenu/wolleIcon.png");
+			"/baumenu/wolleIcon.png");
 	private final static String ICON_HOLZ = new String(
-			"img/baumenu/holzIcon.png");
+			"/baumenu/holzIcon.png");
 
 	public JButton bSiedlungBauen;
 	public JButton bStadtBauen;
@@ -75,23 +76,23 @@ public class Baumenu extends JPanel implements ActionListener {
 
 		// Icons für die Kosten
 		JLabel lHolzIcon = new JLabel();
-		ImageIcon icHolz = new ImageIcon(ICON_HOLZ);
+		ImageIcon icHolz = new ImageIcon(JFrame.class.getResource(ICON_HOLZ));
 		lHolzIcon.setIcon(icHolz);
 
 		JLabel lGetreideIcon = new JLabel();
-		ImageIcon icGetreide = new ImageIcon(ICON_GETREIDE);
+		ImageIcon icGetreide = new ImageIcon(JFrame.class.getResource(ICON_GETREIDE));
 		lGetreideIcon.setIcon(icGetreide);
 
 		JLabel lWolleIcon = new JLabel();
-		ImageIcon icWolle = new ImageIcon(ICON_WOLLE);
+		ImageIcon icWolle = new ImageIcon(JFrame.class.getResource(ICON_WOLLE));
 		lWolleIcon.setIcon(icWolle);
 
 		JLabel lLehmIcon = new JLabel();
-		ImageIcon icLehm = new ImageIcon(ICON_LEHM);
+		ImageIcon icLehm = new ImageIcon(JFrame.class.getResource(ICON_LEHM));
 		lLehmIcon.setIcon(icLehm);
 
 		JLabel lErzIcon = new JLabel();
-		ImageIcon icErz = new ImageIcon(ICON_ERZ);
+		ImageIcon icErz = new ImageIcon(JFrame.class.getResource(ICON_ERZ));
 		lErzIcon.setIcon(icErz);
 
 		add(lHolzIcon, getGBCHorizontal(1, 0, 0.5));

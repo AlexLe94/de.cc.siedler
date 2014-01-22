@@ -27,6 +27,18 @@ public class SpielDaten implements Serializable {
 	// Verteilt die Rohstoffe auf die verschiedenen Spieler, entsprechend der
 	// gewürfelten Zahl
 	public void rohstoffeVerteilen() {
+		for (int i = 0; i < felder.size(); i++){
+			for (int x = 0; x < felder.get(i).getEcken().size(); x++)
+			{
+				System.out.print(felder.get(i).getEcken().get(x).getPosX() + 
+						" - " + felder.get(i).getEcken().get(x).getPosY() + " ");
+			}
+			System.out.println("nächstes feld");
+		}
+		
+		
+		
+		
 		if (felder != null && spielerListe != null) {
 			for (int i = 0; i < felder.size(); i++) {
 				if (felder.get(i).getFeldnr() == (wuerfelEins + wuerfelZwei)) {
@@ -99,26 +111,32 @@ public class SpielDaten implements Serializable {
 						case "Siedlung - blau": {
 							switch (felder.get(i).getRohstoff()) {
 							case "Holz": {
+								System.out.println("holz");
 								spielerListe.get(0).setiHolz(
 										spielerListe.get(0).getiHolz() + 1);
+								System.out.println(spielerListe.get(0).getiHolz());
 								break;
 							}
 							case "Erz": {
+								System.out.println("erz");
 								spielerListe.get(0).setiErz(
 										spielerListe.get(0).getiErz() + 1);
 								break;
 							}
 							case "Lehm": {
+								System.out.println("lehm");
 								spielerListe.get(0).setiLehm(
 										spielerListe.get(0).getiLehm() + 1);
 								break;
 							}
 							case "Getreide": {
+								System.out.println("getreide");
 								spielerListe.get(0).setiGetreide(
 										spielerListe.get(0).getiGetreide() + 1);
 								break;
 							}
 							case "Wolle": {
+								System.out.println("wolle");
 								spielerListe.get(0).setiWolle(
 										spielerListe.get(0).getiWolle() + 1);
 								break;
@@ -379,29 +397,29 @@ public class SpielDaten implements Serializable {
 		 * SPIELFELD KOORDINATEN DER ECKPUNKTE
 		 * 
 		 * 
-		 * 0 200 - 070 307 - 070 414 - 070
+		 * 0 							200 - 070 		307 - 070		414 - 070
 		 * 
-		 * 3 148 - 100 255 - 100 362 - 100 469 - 100
+		 * 3 					148 - 100 		255 - 100 		362 - 100 		469 - 100
 		 * 
-		 * 7 148 - 164 255 - 164 362 - 164 469 - 164
+		 * 7 					148 - 164 		255 - 164 		362 - 164 		469 - 164
 		 * 
-		 * 11 093 - 194 200 - 194 307 - 194 414 - 194 521 - 194
+		 * 11 			093 - 194 		200 - 194 		307 - 194 		414 - 194 		521 - 194
 		 * 
-		 * 16 093 - 258 200 - 258 307 - 258 414 - 258 521 - 194
+		 * 16 			093 - 258 		200 - 258 		307 - 258		414 - 258 		521 - 258
 		 * 
-		 * 21 041 - 288 148 - 288 255 - 288 362 - 288 469 - 288 576 - 288
+		 * 21 	041 - 288 		148 - 288 		255 - 288 		362 - 288 		469 - 288 		576 - 288
 		 * 
-		 * 27 041 - 352 148 - 352 255 - 352 362 - 352 469 - 352 576 - 352
+		 * 27 	041 - 352 		148 - 352 		255 - 352 		362 - 352 		469 - 352 		576 - 352
 		 * 
-		 * 33 093 - 382 200 - 382 307 - 382 414 - 382 521 - 382
+		 * 33 			093 - 382 		200 - 382 		307 - 382 		414 - 382 		521 - 382
 		 * 
-		 * 38 093 - 446 200 - 446 307 - 446 414 - 446 521 - 446
+		 * 38 			093 - 446 		200 - 446 		307 - 446 		414 - 446 		521 - 446
 		 * 
-		 * 43 148 - 476 255 - 476 362 - 476 469 - 476
+		 * 43 					148 - 476 		255 - 476 		362 - 476 		469 - 476
 		 * 
-		 * 47 148 - 540 255 - 540 362 - 540 469 - 540
+		 * 47 					148 - 540 		255 - 540 		362 - 540 		469 - 540
 		 * 
-		 * 51 200 - 570 307 - 570 414 - 570
+		 * 51 							200 - 570 		307 - 570 		414 - 570
 		 */
 		int x = 200;
 		int y = 70;
@@ -445,12 +463,18 @@ public class SpielDaten implements Serializable {
 			getEckPunkteListe().add(new Eckpunkte((x + i * difX), y, ""));
 			if (i != 4) {
 				felder.get(i + 3).addEcke(new Eckpunkte((x + i * difX), y, ""));
+				System.out.println("a" + felder.get(i+3).getEcken().get(felder.get(i+3).getEcken().size()-1).getPosX() 
+						+ " - " + felder.get(i+3).getEcken().get(felder.get(i+3).getEcken().size()-1).getPosY());
 			}
 			if (i == 1 || i == 2 || i == 3 || i == 4) {
 				if (i != 4) {
-					felder.get(i).addEcke(new Eckpunkte((x + i * difX), y, ""));
+					felder.get(i-1).addEcke(new Eckpunkte((x + i * difX), y, ""));
+					System.out.println("b" + felder.get(i).getEcken().get(felder.get(i).getEcken().size()-1).getPosX()
+							+ " - " + felder.get(i).getEcken().get(felder.get(i).getEcken().size()-1).getPosY());
 				}
 				felder.get(i + 2).addEcke(new Eckpunkte((x + i * difX), y, ""));
+				System.out.println("c" + felder.get(i+2).getEcken().get(felder.get(i+2).getEcken().size()-1).getPosX()
+						+ " - " + felder.get(i+2).getEcken().get(felder.get(i+2).getEcken().size()-1).getPosY());
 			}
 
 		}
@@ -567,14 +591,14 @@ public class SpielDaten implements Serializable {
 
 		for (int i = 0; i < 3; i++) { // zwölfte Reihe hinzufügen
 			getEckPunkteListe().add(new Eckpunkte((x + i * difX), y, ""));
-			if (i != 2) {
+//			if (i != 2) {
 				felder.get(i + 16)
 						.addEcke(new Eckpunkte((x + i * difX), y, ""));
-			}
-			if (i == 1 || i == 2) {
-				felder.get(i + 15)
-						.addEcke(new Eckpunkte((x + i * difX), y, ""));
-			}
+//			}
+//			if (i == 1 || i == 2) {
+//				felder.get(i + 16)
+//						.addEcke(new Eckpunkte((x + i * difX), y, ""));
+//			}
 		}
 	}
 
